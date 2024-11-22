@@ -7,10 +7,6 @@ import React, { useState } from "react";
 import rigoImage from "../../img/rigo-baby.jpg";
 
 //create your first component
-const purpleStyles = {
-    backgroundColor: "#7633F9"
-}
-
 const Home = () => {
 	// definición de los hooks
 	let [redColour, setRedColour] = useState("bg-light");
@@ -55,8 +51,7 @@ const Home = () => {
                 <div className={`col-1 rounded-circle p-5 m-3 ${"purple"} ${purpleColourVisibility} mx-auto`}></div>
 			</div>
             <div className="d-flex justify-content-center">
-                <button type="button" class="btn btn-dark m-3" onClick={purpleColourHandler}>Rave time!</button>
-                <button type="button" class="btn btn-info m-3" onClick={purpleColourHandler}>Click me</button>
+                <button type="button" className="btn btn-info m-3" onClick={purpleColourHandler}>Click me</button>
             </div>
 		</>
     );
