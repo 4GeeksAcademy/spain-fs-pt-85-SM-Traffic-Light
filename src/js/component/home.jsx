@@ -13,30 +13,49 @@ const Home = () => {
     let [yellowColour, setYellowColour] = useState("bg-light");
     let [greenColour, setGreenColour] = useState("bg-light");
     let [purpleColourVisibility, setPurpleColourVisibility] = useState("d-none")
+    let [purpleColour, setPurpleColour] = useState("bg-light")
 	// definición de las funciones para manejar los hooks
     let redColourHandler = () => {
         setRedColour("bg-danger");
         setYellowColour("bg-light");
         setGreenColour("bg-light");
+        if (purpleColourVisibility === "d-block" && purpleColour === "purple"){
+            setPurpleColour("bg-light");
+        }
     }
     let yellowColourHandler = () => {
         setRedColour("bg-light");
         setYellowColour("bg-warning")
         setGreenColour("bg-light");
+        if (purpleColourVisibility === "d-block" && purpleColour === "purple"){
+            setPurpleColour("bg-light");
+        }
     }
     let greenColourHandler = () =>{
         setRedColour("bg-light");
         setYellowColour("bg-light");
         setGreenColour("bg-success");
+        if (purpleColourVisibility === "d-block" && purpleColour === "purple"){
+            setPurpleColour("bg-light");
+        }
+
     }
-    let purpleColourHandler = () =>{
-        setRedColour("bg-light");
-        setYellowColour("bg-light");
-        setGreenColour("bg-light");
+    let purpleColourButtonHandler = () =>{
         purpleColourVisibility === "d-none"
         ? setPurpleColourVisibility("d-block")
         : setPurpleColourVisibility("d-none");
+        if(purpleColourVisibility === "d-none" && purpleColour === "purple"){
+            setPurpleColour("bg-light");
+        }
     }
+
+    let purpleColourHandler = () => {
+        setRedColour("bg-light");
+        setYellowColour("bg-light");
+        setGreenColour("bg-light");
+        setPurpleColour("purple")
+    }
+
     return (
 		<>
 			<div className="d-flex gap-5 justify-content-center">
@@ -48,10 +67,10 @@ const Home = () => {
 				<div className={`col-1 rounded-circle p-5 m-3 mx-auto ${redColour}`} onClick={redColourHandler}></div>
 				<div className={`col-1 rounded-circle p-5 m-3 ${yellowColour} mx-auto`} onClick={yellowColourHandler}></div>
 				<div className={`col-1 rounded-circle p-5 m-3 ${greenColour} mx-auto`} onClick={greenColourHandler}></div>
-                <div className={`col-1 rounded-circle p-5 m-3 ${"purple"} ${purpleColourVisibility} mx-auto`}></div>
+                <div className={`col-1 rounded-circle p-5 m-3 ${purpleColour} ${purpleColourVisibility} mx-auto`} onClick={purpleColourHandler}></div>
 			</div>
             <div className="d-flex justify-content-center">
-                <button type="button" className="btn btn-info m-3" onClick={purpleColourHandler}>Click me</button>
+                <button type="button" className="btn btn-info m-3" onClick={purpleColourButtonHandler}>Click me</button>
             </div>
 		</>
     );
